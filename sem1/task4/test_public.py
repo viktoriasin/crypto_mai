@@ -10,7 +10,7 @@ def test_left_rotate(capsys, monkeypatch):  # type: ignore
     left_rotate()
     captured = capsys.readouterr()
     assert int(captured.out.replace('\n', '')) == int('011101101100', 2)
-    assert captured.err == ''git
+    assert captured.err == ''
 
 
 def test_right_rotate(capsys, monkeypatch):  # type: ignore
