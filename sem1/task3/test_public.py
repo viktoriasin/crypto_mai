@@ -5,7 +5,7 @@ import typing as tp
 from .task3 import xor_all
 
 
-def test_link_bits(capsys, monkeypatch):  # type: ignore
+def test_xor_all(capsys, monkeypatch):  # type: ignore
     monkeypatch.setattr(sys, 'stdin', io.StringIO('11100111\n'))
     xor_all()
 

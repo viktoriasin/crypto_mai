@@ -1,17 +1,4 @@
-import sys
-import typing as tp
-
-
-def read_input():
-    input_: tp.IO[str] = sys.stdin
-    data: tp.Any = input_.readlines()
-    return data
-
-
-def write_output(data_to_write):
-    output: tp.IO[str] = sys.stdout
-    output.write(f'{data_to_write}\n')
-    output.flush()
+from ..lib import read_input, write_output
 
 
 def link_bits(num: str = None, bit_i: str = '0', bit_j: str = '0', write: bool = True) -> int:

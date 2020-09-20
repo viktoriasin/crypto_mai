@@ -14,7 +14,7 @@ def test_link_bits(capsys, monkeypatch):  # type: ignore
     assert captured.err == ''
 
 
-def test_link_bits(capsys, monkeypatch):  # type: ignore
+def test_get_bits_between(capsys, monkeypatch):  # type: ignore
     monkeypatch.setattr(sys, 'stdin', io.StringIO(f'100011101101\n5\n3'))
     get_bits_between()
     captured = capsys.readouterr()
