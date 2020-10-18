@@ -37,3 +37,9 @@ def test_equality_by_modulo() -> None:
     second = Node(6, 5)
     assert first.equality_by_modulo(second)
 
+
+def test_sub() -> None:
+    result_expected = Node(5, 5)
+    first = Node(1, 5)
+    second = Node(6, 5)
+    assert second - first == result_expected

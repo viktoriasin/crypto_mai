@@ -34,6 +34,16 @@ class Node:
         else:
             raise ValueError("The modes of numbers must be equal!")
 
+    def __neg__(self):
+        return Node(-self.value, self.mode)
+
+    def __sub__(self, other):
+        if self.check_mode_equals(other):
+            neg_node = -other
+            return self.__add__(neg_node)
+        else:
+            raise ValueError("The modes of numbers must be equal!")
+
     def equality_by_modulo(self, other):
         if self.check_mode_equals(other):
             if self.value % self.mode == other.value % self.mode:

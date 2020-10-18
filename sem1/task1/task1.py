@@ -1,7 +1,7 @@
 from ..lib import read_input, write_output
 
 
-def get_k_bit(num: str = None, bit_k: str = '0', write: bool = True) -> int:
+def get_k_bit(num: str = None, bit_k: str = '1', write: bool = True) -> int:
     if num is None:
         num, bit_k = read_input()
         if num == '':  # EOF
@@ -13,7 +13,7 @@ def get_k_bit(num: str = None, bit_k: str = '0', write: bool = True) -> int:
     return num
 
 
-def set_k_bit(num: str = None, bit_k: str = '0', write: bool = True) -> int:
+def set_k_bit(num: str = None, bit_k: str = '1', write: bool = True) -> int:
     if num is None:
         num, bit_k = read_input()
     num = int(num, 2)
@@ -23,7 +23,7 @@ def set_k_bit(num: str = None, bit_k: str = '0', write: bool = True) -> int:
     return num
 
 
-def reset_k_bit(num: str = None, bit_k: str = '0', write: bool = True) -> int:
+def reset_k_bit(num: str = None, bit_k: str = '1', write: bool = True) -> int:
     if num is None:
         num, bit_k = read_input()
     num = int(num, 2)
@@ -37,7 +37,7 @@ def is_set(num: int) -> bool:
     return True if num else False
 
 
-def swap_bits(num: str = None, bit_i: str = '0', bit_j: str = '0', write: bool = True) -> int:
+def swap_bits(num: str = None, bit_i: str = '1', bit_j: str = '1', write: bool = True) -> int:
     if num is None:
         num, bit_i, bit_j = read_input()
     i = get_k_bit(num, bit_i, write=False)
@@ -54,7 +54,7 @@ def swap_bits(num: str = None, bit_i: str = '0', bit_j: str = '0', write: bool =
     return num
 
 
-def reset_first_k_bit(num: str = None, bit_k: str = '0', write: bool = True) -> int:
+def reset_first_k_bit(num: str = None, bit_k: str = '1', write: bool = True) -> int:
     if num is None:
         num, bit_k = read_input()
     num = int(num, 2)
