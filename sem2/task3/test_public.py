@@ -9,7 +9,7 @@ from .task3 import euler
     (9, 6),
     (5, 4),
     (0, 0),
-    (1, 0),
+    (1, 1),
     (2, 1)
 ])
 def test_sys_of_ded(m: int, expected: tp.List[int]) -> None:

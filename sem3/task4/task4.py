@@ -7,7 +7,7 @@ from sem2.task1.task1 import is_prime
 
 
 class GaloisF:
-    def __init__(self, p, n=1, coeffs = [1, 0, 0, 0, 1, 1, 1, 0, 1]):
+    def __init__(self, p, n=1, coeffs=[1, 0, 0, 0, 1, 1, 1, 0, 1]):
         assert is_prime(p), 'The base of the field should be prime number!'
         assert p >= 1, "Exponent should be 1 or greater!"
 
@@ -18,7 +18,6 @@ class GaloisF:
 
         assert len(coeffs) == n + 1, 'Error, invalid number of coefficients in the irreducible polynomial'
         self.coeffs = coeffs  # the coeffs of the minimal irreducible
-
 
     def add_(self, num1: int, num2: int) -> int:
         return num1 ^ num2
@@ -79,7 +78,6 @@ class GaloisF:
                 elif cur_ind == 1:
                     res.append("x")
                 else:
-                    res.append("x^{}".format(str(i-1)))
+                    res.append("x^{}".format(str(i - 1)))
 
         return ' + '.join(list(reversed(res)))
-
