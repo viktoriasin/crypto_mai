@@ -8,6 +8,7 @@ def get_k_bit(num: str = None, bit_k: str = '1', write: bool = True) -> int:
             return
     num = int(num, 2)
     num = (num >> (int(bit_k) - 1)) & 1
+
     if write:
         write_output(f'{str(num)}')
     return num

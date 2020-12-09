@@ -8,14 +8,14 @@ from .task3 import is_prime, get_pq, RSA
 
 
 def test_get_prime_num_from_bit_range() -> None:
-    res= get_prime_num_from_bit_range(12, 16)
+    res = get_prime_num_from_bit_range(12, 16)
     res2 = get_prime_num_from_bit_range(3, 3)
     assert is_prime(res)
     assert res2 in (2, 3, 5, 7)
 
 
 def test_get_pq() -> None:
-    PRIME_NUMBERS_GENERATOR = get_pq(3,3)
+    PRIME_NUMBERS_GENERATOR = get_pq(3, 3)
     p, q = PRIME_NUMBERS_GENERATOR()
     assert p in (2, 3, 5, 7)
     assert q in (2, 3, 5, 7)
@@ -25,7 +25,7 @@ def test_get_pq_different_values() -> None:
     # проверяем, что при повторных вызовах выдает разные значения P, Q
     PRIME_NUMBERS_GENERATOR = get_pq(3, 3)
     res_p, res_q = list(), list()
-    for i in range(1,5):
+    for i in range(1, 5):
         p, q = PRIME_NUMBERS_GENERATOR()
         res_p.append(p)
         res_q.append(
@@ -43,3 +43,16 @@ def test_rsa_encode() -> None:
     encoded = [rsa.encode(ord(char)) for char in open_text]
     decoded = [chr(rsa.decode(char)) for char in encoded]
     assert open_text == ''.join(decoded)
+
+
+@pytest.mark.parametrize('num', [
+    78,
+    15,
+    1034,
+    12342
+])
+def test_rsa_encode_int(num: int) -> None:
+    rsa = RSA()
+    a_encoded = rsa.encode(num)
+    a_decoded = rsa.decode(a_encoded)
+    assert a_decoded == num
