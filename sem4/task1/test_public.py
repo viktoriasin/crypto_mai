@@ -25,6 +25,29 @@ def test_24_byte_key_24_byte_state(key: str, text: bytearray) -> None:
     decr = r.decrypt(encr)
     assert bytes(text, 'utf8') == bytes(decr)
 
+
+@pytest.mark.parametrize('key,text', [
+    ('fgrhdyfkeiflonhjuytghfreryfhgbnh', r'ghjuytertgfdsdfrfrewsdfr'),
+    ('fgrhdyfkeiflonhjuytghfreryfhgbnh', r'ghjuytertgfdsdfrooiuytgf'),
+])
+def test_32_byte_key_24_byte_state(key: str, text: bytearray) -> None:
+    r = Rijndael(key=key, state_len=24)
+    encr = r.encrypt(text)
+    decr = r.decrypt(encr)
+    assert bytes(text, 'utf8') == bytes(decr)
+
+
+@pytest.mark.parametrize('key,text', [
+    ('fgrhdyqqqiflonhj', r'fgrhdyfkeiflonhjuytghfreryfhgbnh'),
+    ('fgrhdyqqqiflonwj', r'fgrhdyfkeiflonhjuytghfreryfhgbnh'),
+])
+def test_16_byte_key_32_byte_state(key: str, text: bytearray) -> None:
+    r = Rijndael(key=key, state_len=32)
+    encr = r.encrypt(text)
+    decr = r.decrypt(encr)
+    assert bytes(text, 'utf8') == bytes(decr)
+
+
 @pytest.mark.parametrize('key,text', [
     ('fgrhdyfkeiflonhjuytghfreryhtghyh', r'ghjuytertgfdsdfrfrewsdfrjuyhgtrf'),
 ])

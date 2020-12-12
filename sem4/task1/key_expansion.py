@@ -35,7 +35,7 @@ def key_expansion(key, nk, n_subkeys, n_columns):
             # and finally make XOR of 3 columns
             for row in range(4):
                 print('cur',  nk, col)
-                s = (key_schedule[row][col - nk]) ^ (tmp[row]) ^ (RCON[row][int(col / nk - 1)])
+                s = (key_schedule[row][col - nk]) ^ (tmp[row]) ^ (RCON[int(col / nk - 1)])
                 key_schedule[row].append(s)
 
         else:

@@ -118,7 +118,7 @@ class Rijndael:
         key_columns = self.nk
         state_columns = self.n_columns
 
-        for col in range(key_columns):
+        for col in range(state_columns):
             # state_columns*round is a shift which indicates start of a part of the KeySchedule
             s0 = state[0][col] ^ self.key_table[0][state_columns * num_round + col]
             s1 = state[1][col] ^ self.key_table[1][state_columns * num_round + col]
@@ -151,7 +151,7 @@ class Rijndael:
 
     def shift_rows(self, state, inv=False):
         if not inv:
-            for i in range(1, 4):  # TODO хардкод четверки!
+            for i in range(1, 4):
                 state[i] = rotate(state[i], i)
         else:
             for i in range(1, 4):
@@ -161,7 +161,7 @@ class Rijndael:
 
     def mix_columns(self, state, inv=False):
         num_column_state = len(state[0])
-        for i in range(num_column_state):  # TODO хардкод четверки!
+        for i in range(num_column_state):
             if not inv:
                 s0 = mul_by_02(state[0][i]) ^ mul_by_03(state[1][i]) ^ state[2][i] ^ state[3][i]
                 s1 = state[0][i] ^ mul_by_02(state[1][i]) ^ mul_by_03(state[2][i]) ^ state[3][i]
