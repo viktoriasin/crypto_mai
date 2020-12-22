@@ -35,7 +35,6 @@ class GaloisF:
             aa >>= 1
         return r
 
-
     def from_list_to_element(self, l):
         temp = map(lambda a, b: a << b, l, range(len(l) - 1, -1, -1))
         res = reduce(lambda a, b: a | b, temp)

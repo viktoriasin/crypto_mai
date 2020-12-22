@@ -16,8 +16,7 @@ def key_expansion(key, nk, n_subkeys, n_columns):
     for r in range(4):
         for c in range(nk):
             key_schedule[r].append(key_symbols[r + 4 * c])
-    print(key_schedule)
-    print(nk, n_words, n_subkeys, n_columns)
+
     # рекурсивное заполнение матрицы 32 битными словами (заполняем по столбцам - где каждый столбце - 32 битное слово)
     for col in range(nk, n_words):  # col - column number
         if col % nk == 0:
@@ -34,7 +33,7 @@ def key_expansion(key, nk, n_subkeys, n_columns):
 
             # and finally make XOR of 3 columns
             for row in range(4):
-                print('cur',  nk, col)
+
                 s = (key_schedule[row][col - nk]) ^ (tmp[row]) ^ (RCON[int(col / nk - 1)])
                 key_schedule[row].append(s)
 
@@ -43,5 +42,5 @@ def key_expansion(key, nk, n_subkeys, n_columns):
             for row in range(4):
                 s = key_schedule[row][col - nk] ^ key_schedule[row][col - 1]
                 key_schedule[row].append(s)
-    print(key_schedule)
+
     return key_schedule
