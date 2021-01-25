@@ -3,6 +3,7 @@ from sem4.task1.constants import MULTIPLICATIVE_INVERSE, B, A, RAUNDS_INFO
 from sem4.task1.tools import *
 from sem3.task4.task4 import GaloisF
 
+
 class Rijndael:
 
     @classmethod
@@ -180,22 +181,5 @@ class Rijndael:
         state[1][i] = s1
         state[2][i] = s2
         state[3][i] = s3
-        #
-        # for i in range(num_column_state):
-        #     if not inv:
-        #         s0 = mul_by_02(state[0][i]) ^ mul_by_03(state[1][i]) ^ state[2][i] ^ state[3][i]
-        #         s1 = state[0][i] ^ mul_by_02(state[1][i]) ^ mul_by_03(state[2][i]) ^ state[3][i]
-        #         s2 = state[0][i] ^ state[1][i] ^ mul_by_02(state[2][i]) ^ mul_by_03(state[3][i])
-        #         s3 = mul_by_03(state[0][i]) ^ state[1][i] ^ state[2][i] ^ mul_by_02(state[3][i])
-        #     else:
-        #         s0 = mul_by_0e(state[0][i]) ^ mul_by_0b(state[1][i]) ^ mul_by_0d(state[2][i]) ^ mul_by_09(state[3][i])
-        #         s1 = mul_by_09(state[0][i]) ^ mul_by_0e(state[1][i]) ^ mul_by_0b(state[2][i]) ^ mul_by_0d(state[3][i])
-        #         s2 = mul_by_0d(state[0][i]) ^ mul_by_09(state[1][i]) ^ mul_by_0e(state[2][i]) ^ mul_by_0b(state[3][i])
-        #         s3 = mul_by_0b(state[0][i]) ^ mul_by_0d(state[1][i]) ^ mul_by_09(state[2][i]) ^ mul_by_0e(state[3][i])
-        #
-        #     state[0][i] = s0
-        #     state[1][i] = s1
-        #     state[2][i] = s2
-        #     state[3][i] = s3
 
         return state
